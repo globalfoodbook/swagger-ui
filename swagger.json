@@ -1,2255 +1,2255 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "title": "Global Food Book API",
-        "description": "An API used to access content and formats from globalfoodbook's wordpress database. The Global Food Book API provides a programmatic access to content, formats and meta data from the wordpress database. With this REST API, developers can include data from Global Food Book in apps or websites.\n\nFeatures include\n* Recipes, Detailed description, Nutrition label info, Videos, Images and Meta data \n* Blog Posts \nDetailed description of the health related topics. \n* Quotes\n*Snippets of motivating food related quotes.\n* Products \n*Description of products mostly cooking utensils and recipe ingrdient. \n* Sitemap\n*Collection of all the content and formats.\n* Site settings \n*Holds all the site settings, navigational and meta data etc. \n* Taxonomies\n*This holds data on categories and terms that posts are tagged.\n* Podcasts\n*This contains podcasts description and audio file location or url.\n\nAll endpoints are are located at `api.globalfoodbook.net/v1/`.\n",
-        "version": "v1"
+  "swagger": "2.0",
+  "info": {
+    "title": "Global Food Book API",
+    "description": "An API used to access content and formats from globalfoodbook's wordpress database. The Global Food Book API provides a programmatic access to content, formats and meta data from the wordpress database. With this REST API, developers can include data from Global Food Book in apps or websites.\n\nFeatures include\n* Recipes, Detailed description, Nutrition label info, Videos, Images and Meta data \n* Blog Posts \nDetailed description of the health related topics. \n* Quotes\n*Snippets of motivating food related quotes.\n* Products \n*Description of products mostly cooking utensils and recipe ingrdient. \n* Sitemap\n*Collection of all the content and formats.\n* Site settings \n*Holds all the site settings, navigational and meta data etc. \n* Taxonomies\n*This holds data on categories and terms that posts are tagged.\n* Podcasts\n*This contains podcasts description and audio file location or url.\n\nAll endpoints are are located at `api.globalfoodbook.net/v1/`.\n",
+    "version": "v1"
+  },
+  "host": "api.globalfoodbook.net",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "basePath": "/v1",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Archives"
     },
-    "host": "api.globalfoodbook.net",
-    "schemes": [
-        "http",
-        "https"
-    ],
-    "basePath": "/v1",
-    "produces": [
-        "application/json",
-        "application/xml"
-    ],
-    "consumes": [
-        "application/json"
-    ],
-    "tags": [
-        {
-            "name": "Archives"
-        },
-        {
-            "name": "Authors"
-        },
-        {
-            "name": "Formats"
-        },
-        {
-            "name": "Status"
-        },
-        {
-            "name": "Search"
-        },
-        {
-            "name": "Settings"
-        },
-        {
-            "name": "Taxonomies"
-        }
-    ],
-    "securityDefinitions": {
-        "key": {
-            "type": "apiKey",
-            "in": "query",
-            "name": "api_key"
-        }
+    {
+      "name": "Authors"
     },
-    "security": [
-        {
-            "key": []
-        }
-    ],
-    "parameters": {
-        "ids": {
-            "name": "ids",
-            "in": "path",
-            "description": "Comma seperated list of post ids (i.e integers post ids seperated by commas)",
-            "type": "string",
-            "required": true
-        },
-        "format": {
-            "name": "format",
-            "in": "path",
-            "description": "The name of the post type or format",
-            "type": "string",
-            "required": true
-        },
-        "tag": {
-            "name": "tag",
-            "in": "path",
-            "description": "The name of the category or term belonging to a taxonomy",
-            "type": "string",
-            "required": true
-        },
-        "taxonomy": {
-            "name": "taxonomy",
-            "in": "path",
-            "description": "The name of the taxonomy",
-            "type": "string",
-            "required": true
-        },
-        "term": {
-            "name": "term",
-            "in": "path",
-            "description": "The name of the term belonging to a taxonomy",
-            "type": "string",
-            "required": true
-        },
-        "slug-or-id": {
-            "name": "slug-or-id",
-            "in": "path",
-            "description": "This is the post slug or id.",
-            "type": "string",
-            "required": true
-        },
-        "collection": {
-            "name": "collection",
-            "in": "path",
-            "description": "This is grouping term that can be taxonomies, posts etc. It is used to narrow down datasets.",
-            "type": "string",
-            "required": true
-        },
-        "date_component": {
-            "name": "date_component",
-            "in": "path",
-            "description": "This can be year, month or day.",
-            "type": "string",
-            "required": true
-        },
-        "year": {
-            "name": "year",
-            "in": "path",
-            "description": "This is the year the post was published.",
-            "type": "string",
-            "required": true
-        },
-        "month": {
-            "name": "month",
-            "in": "path",
-            "description": "This is the month the post was published.",
-            "type": "string",
-            "required": true
-        },
-        "page": {
-            "name": "page",
-            "in": "query",
-            "description": "This is the page offset.",
-            "type": "integer",
-            "required": false
-        },
-        "recipe_rate_data": {
-            "name": "recipe_rate_data",
-            "in": "body",
-            "description": "This is the recipe rate request body.",
-            "required": true,
+    {
+      "name": "Formats"
+    },
+    {
+      "name": "Status"
+    },
+    {
+      "name": "Search"
+    },
+    {
+      "name": "Settings"
+    },
+    {
+      "name": "Taxonomies"
+    }
+  ],
+  "securityDefinitions": {
+    "key": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "api_key"
+    }
+  },
+  "security": [
+    {
+      "key": []
+    }
+  ],
+  "parameters": {
+    "ids": {
+      "name": "ids",
+      "in": "path",
+      "description": "Comma seperated list of post ids (i.e integers post ids seperated by commas)",
+      "type": "string",
+      "required": true
+    },
+    "format": {
+      "name": "format",
+      "in": "path",
+      "description": "The name of the post type or format",
+      "type": "string",
+      "required": true
+    },
+    "tag": {
+      "name": "tag",
+      "in": "path",
+      "description": "The name of the category or term belonging to a taxonomy",
+      "type": "string",
+      "required": true
+    },
+    "taxonomy": {
+      "name": "taxonomy",
+      "in": "path",
+      "description": "The name of the taxonomy",
+      "type": "string",
+      "required": true
+    },
+    "term": {
+      "name": "term",
+      "in": "path",
+      "description": "The name of the term belonging to a taxonomy",
+      "type": "string",
+      "required": true
+    },
+    "slug-or-id": {
+      "name": "slug-or-id",
+      "in": "path",
+      "description": "This is the post slug or id.",
+      "type": "string",
+      "required": true
+    },
+    "collection": {
+      "name": "collection",
+      "in": "path",
+      "description": "This is grouping term that can be taxonomies, posts etc. It is used to narrow down datasets.",
+      "type": "string",
+      "required": true
+    },
+    "date_component": {
+      "name": "date_component",
+      "in": "path",
+      "description": "This can be year, month or day.",
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "name": "year",
+      "in": "path",
+      "description": "This is the year the post was published.",
+      "type": "string",
+      "required": true
+    },
+    "month": {
+      "name": "month",
+      "in": "path",
+      "description": "This is the month the post was published.",
+      "type": "string",
+      "required": true
+    },
+    "page": {
+      "name": "page",
+      "in": "query",
+      "description": "This is the page offset.",
+      "type": "integer",
+      "required": false
+    },
+    "recipe_rate_data": {
+      "name": "recipe_rate_data",
+      "in": "body",
+      "description": "This is the recipe rate request body.",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/RecipeRate"
+      }
+    }
+  },
+  "responses": {
+    "NotFound": {
+      "description": "Entity not found.",
+      "schema": {
+        "$ref": "#/definitions/Error"
+      }
+    },
+    "BadRequest": {
+      "description": "Illegal input for operation.",
+      "schema": {
+        "$ref": "#/definitions/Error"
+      }
+    },
+    "DefaultError": {
+      "description": "Unexpected error",
+      "schema": {
+        "$ref": "#/definitions/Error"
+      }
+    }
+  },
+  "paths": {
+    "/status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "summary": "Status of this API",
+        "description": "This status endpoint returns status of this API.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A status message.",
             "schema": {
-                "$ref": "#/definitions/RecipeRate"
-            }
-        }
-    },
-    "responses": {
-        "NotFound": {
-            "description": "Entity not found.",
-            "schema": {
-                "$ref": "#/definitions/Error"
-            }
-        },
-        "BadRequest": {
-            "description": "Illegal input for operation.",
-            "schema": {
-                "$ref": "#/definitions/Error"
-            }
-        },
-        "DefaultError": {
-            "description": "Unexpected error",
-            "schema": {
-                "$ref": "#/definitions/Error"
-            }
-        }
-    },
-    "paths": {
-        "/status": {
-            "get": {
-                "tags": [
-                    "Status"
-                ],
-                "summary": "Status of this API",
-                "description": "This status endpoint returns status of this API.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "A status message.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "status": {
-                                    "description": "HTTP status code",
-                                    "type": "string"
-                                },
-                                "message": {
-                                    "description": "Status message",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/authors": {
-            "get": {
-                "tags": [
-                    "Authors"
-                ],
-                "summary": "List of all authors",
-                "description": "The authors endpoint returns a list of all authors.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of authors.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Author"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/authors/{id}/posts": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Unique identifier",
-                        "type": "string",
-                        "required": true
-                    }
-                ],
-                "tags": [
-                    "Authors"
-                ],
-                "summary": "List of all posts belonging to an author",
-                "description": "The author posts endpoint returns a list of all posts belonging to an author.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of author and their respective posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/AuthorPosts"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/archives/index/{date_component}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/date_component"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Archives"
-                ],
-                "summary": "Posts Formats",
-                "description": "The archive endpoint returns a list of the posts by period format\n(i.e can be day or month or year).\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of post.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Archive"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/archives/show/year-month/{year}/{month}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/year"
-                },
-                {
-                    "$ref": "#/parameters/month"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Archives"
-                ],
-                "summary": "Posts Formats",
-                "description": "The archive endpoint returns a list of the posts filtered by year and month.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of post.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Archive"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/archives/show/year/{year}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/year"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Archives"
-                ],
-                "summary": "Posts Formats",
-                "description": "The archive endpoint returns a list of the posts filtered by year.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of post.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Archive"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/taxonomies": {
-            "get": {
-                "tags": [
-                    "Taxonomies"
-                ],
-                "summary": "List of all taxonomies",
-                "description": "The taxonomies endpoint returns a list of all taxonomies.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of taxonomies.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/taxonomies/tree": {
-            "get": {
-                "tags": [
-                    "Taxonomies"
-                ],
-                "summary": "List of all taxonomies with associated taxonomy terms and all associated posts.",
-                "description": "The taxonomies endpoint returns a list of aall taxonomies with associated taxonomy terms and all associated posts.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of taxonomies.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                ".*": {
-                                    "$ref": "#/definitions/TagPost"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/taxonomies/tags/{tag}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/tag"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Taxonomies"
-                ],
-                "summary": "Tags by parent",
-                "description": "The taxonomies endpoint returns a list of the tags by parent taxonomy.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of tags.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Tag"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/taxonomies/terms/{term}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/term"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Taxonomies"
-                ],
-                "summary": "Posts by term",
-                "description": "The taxonomies terms endpoint returns a list of the posts by parent term.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Post Formats",
-                "description": "The Formats endpoint returns a list of the ten (i.e 10) most recent posts (i.e can be posts, recipes, podcasts and quotes etc). Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of formats.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/ids/{ids}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/ids"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Posts by list of post ids",
-                "description": "The posts endpoint returns a list of the posts by posts ids.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/index/{format}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                },
-                {
-                    "$ref": "#/parameters/format"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Posts by format index returns the recent (i.e recipes, podcasts, posts, products, quotes etc)",
-                "description": "The formats endpoint returns a list of the ten (i.e 10) posts by format index. Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/index/posts": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Blog post list.",
-                "description": "The blog posts endpoint returns a list of the ten (i.e 10) most recent blog posts. Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of blog posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/index/recipes": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Recipe list.",
-                "description": "The recipes endpoint returns a list of the ten (i.e 10) most recent recipes. Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of recipes.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Recipe"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/index/podcasts": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Podcast list",
-                "description": "The podcasts endpoint returns a list of the ten (i.e 10) most recent podcasts. Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of podcasts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Podcast"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/index/products": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Product list",
-                "description": "The products endpoint returns a list of the ten (i.e 10) most recent products. Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of products.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Product"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/index/quotes": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Quote list",
-                "description": "The quotes endpoint returns a list of the ten (i.e 10) most recent quotes. Pagination is available with the page query attribute.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of quotes.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/posts/{slug-or-id}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/slug-or-id"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Post by slug or id",
-                "description": "The post endpoint returns a posts by slug or id. If post not found a list of possible related posts is returned.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "A post or array of posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/by/taxonomy/{taxonomy}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/taxonomy"
-                },
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Find formats by taxonomy",
-                "description": "The formats endpoint returns a posts found by taxonomy.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of formats / posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/formats/by/taxonomy-term/{taxonomy}/{term}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/taxonomy"
-                },
-                {
-                    "$ref": "#/parameters/term"
-                },
-                {
-                    "$ref": "#/parameters/page"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Find formats by taxonomy and term",
-                "description": "The formats endpoint returns a posts found by taxonomy and term.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of formats / posts.",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Post"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/recipe/rate": {
-            "post": {
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/recipe_rate_data"
-                    }
-                ],
-                "tags": [
-                    "Formats"
-                ],
-                "summary": "Create/Update recipe rate",
-                "description": "This an endpoint that creates/updates a recipe's rate as provided by the user.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An data about the recipe ratings.",
-                        "schema": {
-                            "type": "object",
-                            "items": {
-                                "$ref": "#/definitions/RecipeRateResponse"
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/settings": {
-            "get": {
-                "tags": [
-                    "Settings"
-                ],
-                "summary": "Website settings.",
-                "description": "The settings endpoint returns a list of website settings like menu list, theme widgets, social media links etc etc.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of website settings.",
-                        "schema": {
-                            "type": "object"
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/sitemap.xml": {
-            "get": {
-                "tags": [
-                    "Sitemaps"
-                ],
-                "summary": "Website sitemap.",
-                "description": "The sitemap endpoint returns a list of website sitemap like menu list, theme widgets, social media links etc etc.\n",
-                "produces": [
-                    "application/xml"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of sitemap.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "sitemapindex": {
-                                    "description": "This sitemap index that holds the list of sitemaps.",
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/Sitemap"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/sitemap/{collection}/{term}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/collection"
-                },
-                {
-                    "$ref": "#/parameters/term"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Sitemaps"
-                ],
-                "summary": "Sitemap url set by taxonomy and term.",
-                "description": "The sitemap urlset endpoint returns a list of urls by taxonomy and term.\n",
-                "produces": [
-                    "application/xml"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of urls.",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "urlset": {
-                                    "description": "This url set index that holds the list of url sets.",
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/URL"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        },
-        "/search/{term}": {
-            "parameters": [
-                {
-                    "$ref": "#/parameters/term"
-                }
-            ],
-            "get": {
-                "tags": [
-                    "Search",
-                    "Formats"
-                ],
-                "summary": "Search list of posts.",
-                "description": "The search endpoint returns a list of posts by term.\n",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "An array of posts.",
-                        "schema": {
-                            "$ref": "#/definitions/Post"
-                        }
-                    },
-                    "400": {
-                        "$ref": "#/responses/BadRequest"
-                    },
-                    "404": {
-                        "$ref": "#/responses/NotFound"
-                    },
-                    "default": {
-                        "$ref": "#/responses/DefaultError"
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "Content": {
-            "type": "object",
-            "properties": {
-                "html": {
-                    "description": "HTML version of the post content.",
-                    "type": "string"
-                }
-            }
-        },
-        "Post": {
-            "title": "A representation of a post.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique post id",
-                    "type": "integer"
-                },
-                "type": {
-                    "description": "type of post for example recipe, podcast or quote etc",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "Unique post name. Usually delimited by dash.(i.e '-')",
-                    "type": "string"
-                },
-                "path": {
-                    "description": "Unique post name prefixed by post type.",
-                    "type": "string"
-                },
+              "type": "object",
+              "properties": {
                 "status": {
-                    "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "The title of a post.",
-                    "type": "string"
-                },
-                "content": {
-                    "$ref": "#/definitions/Content"
-                },
-                "excerpt": {
-                    "description": "This short description of a post.",
-                    "type": "string"
-                },
-                "meta_description": {
-                    "description": "The meta_description of a post.",
-                    "type": "string"
-                },
-                "keywords": {
-                    "description": "The list of keywords of a post.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date a post was created.",
-                    "type": "string"
-                },
-                "modified_at": {
-                    "description": "The date a post was last modified.",
-                    "type": "string"
-                },
-                "author": {
-                    "$ref": "#/definitions/Author"
-                },
-                "categories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "comment_count": {
-                    "description": "This number of comments on this post.",
-                    "type": "integer"
-                },
-                "comment_status": {
-                    "description": "This is the comment status. example open or closed",
-                    "type": "string"
-                },
-                "comments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Comment"
-                    }
-                },
-                "related_posts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MetaPost"
-                    }
-                },
-                "next_and_previous": {
-                    "type": "object",
-                    "properties": {
-                        "format": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        },
-                        "kind": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        }
-                    }
-                },
-                "affiliate": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Affiliate"
-                    }
-                }
-            }
-        },
-        "MetaPost": {
-            "title": "A representation of a meta post.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique post id",
-                    "type": "integer"
-                },
-                "type": {
-                    "description": "type of post for example recipe, podcast or quote etc",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "Unique post name. Usually delimited by dash.(i.e '-')",
-                    "type": "string"
-                },
-                "path": {
-                    "description": "Unique post name prefixed by post type.",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "The title of a post.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date of the post.",
-                    "type": "string"
-                }
-            }
-        },
-        "Recipe": {
-            "title": "A representation of a post.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique post id",
-                    "type": "integer"
-                },
-                "type": {
-                    "description": "type of post for example recipe, podcast or quote etc",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "Unique post name. Usually delimited by dash.(i.e '-')",
-                    "type": "string"
-                },
-                "path": {
-                    "description": "Unique post name prefixed by post type.",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "The title of a post.",
-                    "type": "string"
-                },
-                "content": {
-                    "$ref": "#/definitions/Content"
-                },
-                "excerpt": {
-                    "description": "This short description of a post.",
-                    "type": "string"
-                },
-                "meta_description": {
-                    "description": "The meta_description of a post.",
-                    "type": "string"
-                },
-                "keywords": {
-                    "description": "The list of keywords of a post.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date a post was created.",
-                    "type": "string"
-                },
-                "modified_at": {
-                    "description": "The date a post was last modified.",
-                    "type": "string"
-                },
-                "author": {
-                    "$ref": "#/definitions/Author"
-                },
-                "categories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "comment_count": {
-                    "description": "This number of comments on this post.",
-                    "type": "integer"
-                },
-                "comment_status": {
-                    "description": "This is the comment status. example open or closed",
-                    "type": "string"
-                },
-                "comments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Comment"
-                    }
-                },
-                "related_posts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MetaPost"
-                    }
-                },
-                "next_and_previous": {
-                    "type": "object",
-                    "properties": {
-                        "format": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        },
-                        "kind": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        }
-                    }
-                },
-                "affiliate": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Affiliate"
-                    }
-                },
-                "cook_time": {
-                    "description": "The cook time for preparing a recipe.",
-                    "type": "string"
-                },
-                "ingredients": {
-                    "description": "The list of ingredients for this recipe.",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "instructions": {
-                    "description": "The list of instructions for this recipe.",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "preparation_time": {
-                    "description": "The preparation time for this recipe.",
-                    "type": "string"
-                },
-                "ready_in": {
-                    "description": "The total preparation and cook time for this recipe.",
-                    "type": "string"
-                },
-                "servings": {
-                    "description": "The servings for this recipe.",
-                    "type": "string"
-                },
-                "yield": {
-                    "description": "The yield for this recipe.",
-                    "type": "string"
-                },
-                "nutrition_label": {
-                    "$ref": "#/definitions/NutritionLabel"
-                }
-            }
-        },
-        "Podcast": {
-            "title": "A representation of a post.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique post id",
-                    "type": "integer"
-                },
-                "type": {
-                    "description": "type of post for example recipe, podcast or quote etc",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "Unique post name. Usually delimited by dash.(i.e '-')",
-                    "type": "string"
-                },
-                "path": {
-                    "description": "Unique post name prefixed by post type.",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "The title of a post.",
-                    "type": "string"
-                },
-                "content": {
-                    "$ref": "#/definitions/Content"
-                },
-                "excerpt": {
-                    "description": "This short description of a post.",
-                    "type": "string"
-                },
-                "meta_description": {
-                    "description": "The meta_description of a post.",
-                    "type": "string"
-                },
-                "keywords": {
-                    "description": "The list of keywords of a post.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date a post was created.",
-                    "type": "string"
-                },
-                "modified_at": {
-                    "description": "The date a post was last modified.",
-                    "type": "string"
-                },
-                "author": {
-                    "$ref": "#/definitions/Author"
-                },
-                "categories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "comment_count": {
-                    "description": "This number of comments on this post.",
-                    "type": "integer"
-                },
-                "comment_status": {
-                    "description": "This is the comment status. example open or closed",
-                    "type": "string"
-                },
-                "comments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Comment"
-                    }
-                },
-                "related_posts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MetaPost"
-                    }
-                },
-                "next_and_previous": {
-                    "type": "object",
-                    "properties": {
-                        "format": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        },
-                        "kind": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        }
-                    }
-                },
-                "affiliate": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Affiliate"
-                    }
-                },
-                "enclosure": {
-                    "description": "The podcast enclosure details.",
-                    "type": "object",
-                    "properties": {
-                        "url": {
-                            "description": "The url to the audio file",
-                            "type": "string"
-                        },
-                        "long": {
-                            "description": "The long time for the recording",
-                            "type": "integer"
-                        },
-                        "format": {
-                            "description": "Audio format",
-                            "type": "string"
-                        },
-                        "duration": {
-                            "description": "The audio recording duration",
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "Product": {
-            "title": "A representation of a post.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique post id",
-                    "type": "integer"
-                },
-                "type": {
-                    "description": "type of post for example recipe, podcast or quote etc",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "Unique post name. Usually delimited by dash.(i.e '-')",
-                    "type": "string"
-                },
-                "path": {
-                    "description": "Unique post name prefixed by post type.",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "The title of a post.",
-                    "type": "string"
-                },
-                "content": {
-                    "$ref": "#/definitions/Content"
-                },
-                "excerpt": {
-                    "description": "This short description of a post.",
-                    "type": "string"
-                },
-                "meta_description": {
-                    "description": "The meta_description of a post.",
-                    "type": "string"
-                },
-                "keywords": {
-                    "description": "The list of keywords of a post.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date a post was created.",
-                    "type": "string"
-                },
-                "modified_at": {
-                    "description": "The date a post was last modified.",
-                    "type": "string"
-                },
-                "author": {
-                    "$ref": "#/definitions/Author"
-                },
-                "categories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tag"
-                    }
-                },
-                "comment_count": {
-                    "description": "This number of comments on this post.",
-                    "type": "integer"
-                },
-                "comment_status": {
-                    "description": "This is the comment status. example open or closed",
-                    "type": "string"
-                },
-                "comments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Comment"
-                    }
-                },
-                "related_posts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MetaPost"
-                    }
-                },
-                "next_and_previous": {
-                    "type": "object",
-                    "properties": {
-                        "format": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        },
-                        "kind": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MetaPost"
-                            }
-                        }
-                    }
-                },
-                "affiliate": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Affiliate"
-                    }
-                },
-                "url": {
-                    "description": "The url to the affiliate product page.",
-                    "type": "string"
-                },
-                "button_text": {
-                    "description": "The button text of the product.",
-                    "type": "string"
-                },
-                "price": {
-                    "$ref": "#/definitions/Price"
-                },
-                "sale_price": {
-                    "$ref": "#/definitions/Price"
-                },
-                "regular_price": {
-                    "$ref": "#/definitions/Price"
-                }
-            }
-        },
-        "Author": {
-            "title": "A representation of an author.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique author id.",
-                    "type": "integer"
-                },
-                "meta_id": {
-                    "description": "The meta_id for this author.",
-                    "type": "integer"
-                },
-                "nickname": {
-                    "description": "The nickname for this author.",
-                    "type": "string"
-                },
-                "email": {
-                    "description": "The nickname for this author.",
-                    "type": "string"
-                },
-                "url": {
-                    "description": "The url for this author.",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "The status permission for this author.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date this author was created.",
-                    "type": "string"
-                }
-            }
-        },
-        "AuthorPosts": {
-            "title": "A representation of all posts belonging to an author.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique author id.",
-                    "type": "integer"
-                },
-                "meta_id": {
-                    "description": "The meta_id for this author.",
-                    "type": "integer"
-                },
-                "nickname": {
-                    "description": "The nickname for this author.",
-                    "type": "string"
-                },
-                "email": {
-                    "description": "The nickname for this author.",
-                    "type": "string"
-                },
-                "url": {
-                    "description": "The url for this author.",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "The status permission for this author.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date this author was created.",
-                    "type": "string"
-                },
-                "post_count": {
-                    "description": "The number of posts published by this author.",
-                    "type": "integer"
-                },
-                "posts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Post"
-                    }
-                }
-            }
-        },
-        "Archive": {
-            "title": "A representation of a sitemap.",
-            "type": "object",
-            "properties": {
-                "day": {
-                    "description": "The archive day.",
-                    "type": "string"
-                },
-                "month": {
-                    "description": "The archive month.",
-                    "type": "string"
-                },
-                "year": {
-                    "description": "The archive year.",
-                    "type": "string"
-                },
-                "date": {
-                    "description": "The archive full date.",
-                    "type": "string"
-                },
-                "formats": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MetaPost"
-                    }
-                }
-            }
-        },
-        "Sitemap": {
-            "title": "A representation of a sitemap.",
-            "type": "object",
-            "properties": {
-                "loc": {
-                    "description": "The sitemap location.",
-                    "type": "string"
-                },
-                "lastmod": {
-                    "description": "The sitemap last modified date.",
-                    "type": "string"
-                }
-            }
-        },
-        "URL": {
-            "title": "A representation of a URL.",
-            "type": "object",
-            "properties": {
-                "loc": {
-                    "description": "The url\\'s location.",
-                    "type": "string"
-                },
-                "priority": {
-                    "description": "The url\\'s priority.",
-                    "type": "string"
-                },
-                "changefreq": {
-                    "description": "The url\\'s change frequency.",
-                    "type": "string"
-                },
-                "lastmod": {
-                    "description": "The url\\'s last modified date.",
-                    "type": "string"
-                }
-            }
-        },
-        "TagPost": {
-            "title": "A representation of a taxonomy and associated posts.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "The id of the taxonomy.",
-                    "type": "integer"
-                },
-                "post_id": {
-                    "description": "The post id reference to a post.",
-                    "type": "integer"
-                },
-                "name": {
-                    "description": "Name of taxonomy.",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "The description of the taxonomy.",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "The slug of the taxonomy.",
-                    "type": "string"
-                },
-                "taxonomy": {
-                    "description": "The taxonomy for this.",
-                    "type": "string"
-                },
-                "parent": {
-                    "description": "The parent taxonomy id.",
-                    "type": "integer"
-                },
-                "group": {
-                    "description": "The group id for this.",
-                    "type": "integer"
-                },
-                "order": {
-                    "description": "The sorting order for this.",
-                    "type": "integer"
-                },
-                "posts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/MetaPost"
-                    }
-                }
-            }
-        },
-        "Tag": {
-            "title": "A representation of a tag.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "The id of the taxonomy.",
-                    "type": "integer"
-                },
-                "post_id": {
-                    "description": "The post id reference to a post.",
-                    "type": "integer"
-                },
-                "name": {
-                    "description": "Name of taxonomy.",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "The description of the taxonomy.",
-                    "type": "string"
-                },
-                "slug": {
-                    "description": "The slug of the taxonomy.",
-                    "type": "string"
-                },
-                "taxonomy": {
-                    "description": "The taxonomy for this.",
-                    "type": "string"
-                },
-                "parent": {
-                    "description": "The parent taxonomy id.",
-                    "type": "integer"
-                },
-                "group": {
-                    "description": "The group id for this.",
-                    "type": "integer"
-                },
-                "order": {
-                    "description": "The sorting order for this.",
-                    "type": "integer"
-                }
-            }
-        },
-        "Affiliate": {
-            "title": "A representation of an affiliate's attachment.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique attachment id.",
-                    "type": "integer"
-                },
-                "meta_id": {
-                    "description": "The meta_id for this attachment.",
-                    "type": "integer"
-                },
-                "path": {
-                    "description": "The path for this author.",
-                    "type": "string"
-                },
-                "meta": {
-                    "description": "The path for this author.",
-                    "type": "object",
-                    "properties": {
-                        "file": {
-                            "description": "The file path to original image.",
-                            "type": "string"
-                        },
-                        "height": {
-                            "description": "The height of the original image.",
-                            "type": "integer"
-                        },
-                        "width": {
-                            "description": "The width of the original image.",
-                            "type": "integer"
-                        },
-                        "title": {
-                            "description": "The title for this affiliate post.",
-                            "type": "string"
-                        },
-                        "url": {
-                            "description": "The url for this affiliate post.",
-                            "type": "string"
-                        },
-                        "image_meta": {
-                            "description": "The image meta data of the raw image.",
-                            "type": "object",
-                            "properties": {
-                                "aperture": {
-                                    "description": "The camera aperture data",
-                                    "type": "string"
-                                },
-                                "camera": {
-                                    "description": "The name of the camera.",
-                                    "type": "string"
-                                },
-                                "caption": {
-                                    "description": "The image caption from the camera.",
-                                    "type": "string"
-                                },
-                                "copyright": {
-                                    "description": "The copyright from the camera.",
-                                    "type": "string"
-                                },
-                                "created_timestamp": {
-                                    "description": "The copyright from the camera.",
-                                    "type": "string"
-                                },
-                                "credit": {
-                                    "description": "The credit (photographer) from the camera.",
-                                    "type": "string"
-                                },
-                                "focal_length": {
-                                    "description": "The focal length from the camera.",
-                                    "type": "string"
-                                },
-                                "iso": {
-                                    "description": "The focal length from the camera.",
-                                    "type": "string"
-                                },
-                                "keywords": {
-                                    "description": "The image keywords from the camera.",
-                                    "type": "string"
-                                },
-                                "orientation": {
-                                    "description": "The image orientation from the camera.",
-                                    "type": "string"
-                                },
-                                "shutter_speed": {
-                                    "description": "The image shutter speed from the camera.",
-                                    "type": "string"
-                                },
-                                "title": {
-                                    "description": "The image title speed from the camera.",
-                                    "type": "string"
-                                },
-                                "sizes": {
-                                    "description": "This various image sizes.",
-                                    "type": "object",
-                                    "properties": {
-                                        ".*": {
-                                            "$ref": "#/definitions/MetaImageSize"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "MetaImageSize": {
-            "title": "A representation of the meta data for image size.",
-            "type": "object",
-            "properties": {
-                "converted": {
-                    "description": "The file path.",
-                    "type": "integer"
-                },
-                "file": {
-                    "description": "The file path.",
-                    "type": "string"
-                },
-                "orig_file": {
-                    "description": "The original file path.",
-                    "type": "string"
-                },
-                "real_orig_file": {
-                    "description": "The real original file path.",
-                    "type": "string"
-                },
-                "height": {
-                    "description": "The image height.",
-                    "type": "integer"
-                },
-                "width": {
-                    "description": "The image height.",
-                    "type": "integer"
-                },
-                "mime-type": {
-                    "description": "The image mime-type.",
-                    "type": "string"
-                }
-            }
-        },
-        "RecipeRateResponse": {
-            "title": "A request body for creating/updating a recipe.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique recipe id",
-                    "type": "string"
-                },
-                "rates": {
-                    "description": "User given rates",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "The status of the create/update transaction.",
-                    "type": "boolean"
-                }
-            }
-        },
-        "RecipeRate": {
-            "description": "Recipe Rate object",
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The recipe database id"
-                },
-                "rate": {
-                    "type": "string",
-                    "description": "The user give rate for the recipe."
-                }
-            },
-            "required": [
-                "id",
-                "rate"
-            ]
-        },
-        "Comment": {
-            "title": "A representation of a comment.",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique author id.",
-                    "type": "integer"
-                },
-                "post_id": {
-                    "description": "The post_id for this comment.",
-                    "type": "integer"
-                },
-                "content": {
-                    "description": "Content for this comment.",
-                    "type": "string"
-                },
-                "type": {
-                    "description": "Type of comment.",
-                    "type": "string"
-                },
-                "parent": {
-                    "description": "Parent post id",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "Comment\\'s status",
-                    "type": "string"
-                },
-                "user_id": {
-                    "description": "Comment\\'s user id",
-                    "type": "string"
-                },
-                "author": {
-                    "description": "Comment\\'s author slug",
-                    "type": "string"
-                },
-                "author_url": {
-                    "description": "Comment\\'s author slug",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "The date this author was created.",
-                    "type": "string"
-                }
-            }
-        },
-        "Price": {
-            "title": "A representation of a Price Float64",
-            "type": "object",
-            "properties": {
-                "Float64": {
-                    "type": "number"
-                },
-                "Valid": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "Error": {
-            "title": "A representation of a ERROR Model",
-            "type": "object",
-            "properties": {
-                "count": {
-                    "description": "Count of posts",
-                    "type": "integer"
+                  "description": "HTTP status code",
+                  "type": "string"
                 },
                 "message": {
-                    "description": "Count of posts",
-                    "type": "string"
-                },
-                "status": {
-                    "description": "Count of posts",
-                    "type": "string"
+                  "description": "Status message",
+                  "type": "string"
                 }
+              }
             }
-        },
-        "NutritionLabel": {
-            "title": "A representation of a Nutrional Facts Label",
-            "type": "object",
-            "properties": {
-                "PolyFat": {
-                    "description": "The PolyFat.",
-                    "type": "string"
-                },
-                "MonoFat": {
-                    "description": "The MonoFat.",
-                    "type": "string"
-                },
-                "valueCalories": {
-                    "description": "The valueCalories.",
-                    "type": "string"
-                },
-                "valueFatCalories": {
-                    "description": "The valueFatCalories.",
-                    "type": "string"
-                },
-                "valueTotalFat": {
-                    "description": "The valueTotalFat.",
-                    "type": "string"
-                },
-                "valueSatFat": {
-                    "description": "The valueSatFat.",
-                    "type": "string"
-                },
-                "valueTransFat": {
-                    "description": "The valueTransFat.",
-                    "type": "string"
-                },
-                "valueCholesterol": {
-                    "description": "The valueCholesterol.",
-                    "type": "string"
-                },
-                "valueSodium": {
-                    "description": "The valueSodium.",
-                    "type": "string"
-                },
-                "valueTotalCarb": {
-                    "description": "The valueTotalCarb.",
-                    "type": "string"
-                },
-                "valueFibers": {
-                    "description": "The valueFibers.",
-                    "type": "string"
-                },
-                "valueSugars": {
-                    "description": "The valueSugars.",
-                    "type": "string"
-                },
-                "valueProteins": {
-                    "description": "The valueProteins.",
-                    "type": "string"
-                },
-                "valueVitaminA": {
-                    "description": "The valueVitaminA.",
-                    "type": "string"
-                },
-                "valueVitaminC": {
-                    "description": "The valueVitaminC.",
-                    "type": "string"
-                },
-                "valueCalcium": {
-                    "description": "The valueCalcium.",
-                    "type": "string"
-                },
-                "valueIron": {
-                    "description": "The valueIron.",
-                    "type": "string"
-                },
-                "valuePotassium": {
-                    "description": "The valuePotassium.",
-                    "type": "string"
-                }
-            }
+          }
         }
+      }
+    },
+    "/authors": {
+      "get": {
+        "tags": [
+          "Authors"
+        ],
+        "summary": "List of all authors",
+        "description": "The authors endpoint returns a list of all authors.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of authors.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Author"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/authors/{id}/posts": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "tags": [
+          "Authors"
+        ],
+        "summary": "List of all posts belonging to an author",
+        "description": "The author posts endpoint returns a list of all posts belonging to an author.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of author and their respective posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AuthorPosts"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/archives/index/{date_component}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/date_component"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Archives"
+        ],
+        "summary": "Posts Formats",
+        "description": "The archive endpoint returns a list of the posts by period format\n(i.e can be day or month or year).\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of post.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Archive"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/archives/show/year-month/{year}/{month}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/year"
+        },
+        {
+          "$ref": "#/parameters/month"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Archives"
+        ],
+        "summary": "Posts Formats",
+        "description": "The archive endpoint returns a list of the posts filtered by year and month.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of post.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Archive"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/archives/show/year/{year}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/year"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Archives"
+        ],
+        "summary": "Posts Formats",
+        "description": "The archive endpoint returns a list of the posts filtered by year.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of post.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Archive"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/taxonomies": {
+      "get": {
+        "tags": [
+          "Taxonomies"
+        ],
+        "summary": "List of all taxonomies",
+        "description": "The taxonomies endpoint returns a list of all taxonomies.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of taxonomies.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/taxonomies/tree": {
+      "get": {
+        "tags": [
+          "Taxonomies"
+        ],
+        "summary": "List of all taxonomies with associated taxonomy terms and all associated posts.",
+        "description": "The taxonomies endpoint returns a list of aall taxonomies with associated taxonomy terms and all associated posts.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of taxonomies.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                ".*": {
+                  "$ref": "#/definitions/TagPost"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/taxonomies/tags/{tag}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/tag"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Taxonomies"
+        ],
+        "summary": "Tags by parent",
+        "description": "The taxonomies endpoint returns a list of the tags by parent taxonomy.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of tags.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/taxonomies/terms/{term}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/term"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Taxonomies"
+        ],
+        "summary": "Posts by term",
+        "description": "The taxonomies terms endpoint returns a list of the posts by parent term.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Post Formats",
+        "description": "The Formats endpoint returns a list of the ten (i.e 10) most recent posts (i.e can be posts, recipes, podcasts and quotes etc). Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of formats.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/ids/{ids}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/ids"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Posts by list of post ids",
+        "description": "The posts endpoint returns a list of the posts by posts ids.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/index/{format}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        },
+        {
+          "$ref": "#/parameters/format"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Posts by format index returns the recent (i.e recipes, podcasts, posts, products, quotes etc)",
+        "description": "The formats endpoint returns a list of the ten (i.e 10) posts by format index. Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/index/posts": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Blog post list.",
+        "description": "The blog posts endpoint returns a list of the ten (i.e 10) most recent blog posts. Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of blog posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/index/recipes": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Recipe list.",
+        "description": "The recipes endpoint returns a list of the ten (i.e 10) most recent recipes. Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of recipes.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Recipe"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/index/podcasts": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Podcast list",
+        "description": "The podcasts endpoint returns a list of the ten (i.e 10) most recent podcasts. Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of podcasts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Podcast"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/index/products": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Product list",
+        "description": "The products endpoint returns a list of the ten (i.e 10) most recent products. Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of products.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/index/quotes": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Quote list",
+        "description": "The quotes endpoint returns a list of the ten (i.e 10) most recent quotes. Pagination is available with the page query attribute.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of quotes.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/posts/{slug-or-id}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/slug-or-id"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Post by slug or id",
+        "description": "The post endpoint returns a posts by slug or id. If post not found a list of possible related posts is returned.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A post or array of posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/recipes/{id}/rate": {
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/recipe_rate_data"
+          }
+        ],
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Create/Update recipe rate",
+        "description": "This an endpoint that creates/updates a recipe's rate as provided by the user.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An data about the recipe ratings.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/RecipeRateResponse"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/by/taxonomy/{taxonomy}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/taxonomy"
+        },
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Find formats by taxonomy",
+        "description": "The formats endpoint returns a posts found by taxonomy.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of formats / posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/formats/by/taxonomy-term/{taxonomy}/{term}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/taxonomy"
+        },
+        {
+          "$ref": "#/parameters/term"
+        },
+        {
+          "$ref": "#/parameters/page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Find formats by taxonomy and term",
+        "description": "The formats endpoint returns a posts found by taxonomy and term.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of formats / posts.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Post"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/settings": {
+      "get": {
+        "tags": [
+          "Settings"
+        ],
+        "summary": "Website settings.",
+        "description": "The settings endpoint returns a list of website settings like menu list, theme widgets, social media links etc etc.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of website settings.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "tags": [
+          "Sitemaps"
+        ],
+        "summary": "Website sitemap.",
+        "description": "The sitemap endpoint returns a list of website sitemap like menu list, theme widgets, social media links etc etc.\n",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of sitemap.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sitemapindex": {
+                  "description": "This sitemap index that holds the list of sitemaps.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Sitemap"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/sitemap/{collection}/{term}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/collection"
+        },
+        {
+          "$ref": "#/parameters/term"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Sitemaps"
+        ],
+        "summary": "Sitemap url set by taxonomy and term.",
+        "description": "The sitemap urlset endpoint returns a list of urls by taxonomy and term.\n",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of urls.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "urlset": {
+                  "description": "This url set index that holds the list of url sets.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/URL"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/search/{term}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/term"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Search",
+          "Formats"
+        ],
+        "summary": "Search list of posts.",
+        "description": "The search endpoint returns a list of posts by term.\n",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of posts.",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
     }
+  },
+  "definitions": {
+    "Content": {
+      "type": "object",
+      "properties": {
+        "html": {
+          "description": "HTML version of the post content.",
+          "type": "string"
+        }
+      }
+    },
+    "Post": {
+      "title": "A representation of a post.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique post id",
+          "type": "integer"
+        },
+        "type": {
+          "description": "type of post for example recipe, podcast or quote etc",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Unique post name. Usually delimited by dash.(i.e '-')",
+          "type": "string"
+        },
+        "path": {
+          "description": "Unique post name prefixed by post type.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title of a post.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "excerpt": {
+          "description": "This short description of a post.",
+          "type": "string"
+        },
+        "meta_description": {
+          "description": "The meta_description of a post.",
+          "type": "string"
+        },
+        "keywords": {
+          "description": "The list of keywords of a post.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date a post was created.",
+          "type": "string"
+        },
+        "modified_at": {
+          "description": "The date a post was last modified.",
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/Author"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "comment_count": {
+          "description": "This number of comments on this post.",
+          "type": "integer"
+        },
+        "comment_status": {
+          "description": "This is the comment status. example open or closed",
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "related_posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetaPost"
+          }
+        },
+        "next_and_previous": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            },
+            "kind": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            }
+          }
+        },
+        "affiliate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Affiliate"
+          }
+        }
+      }
+    },
+    "MetaPost": {
+      "title": "A representation of a meta post.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique post id",
+          "type": "integer"
+        },
+        "type": {
+          "description": "type of post for example recipe, podcast or quote etc",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Unique post name. Usually delimited by dash.(i.e '-')",
+          "type": "string"
+        },
+        "path": {
+          "description": "Unique post name prefixed by post type.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title of a post.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date of the post.",
+          "type": "string"
+        }
+      }
+    },
+    "Recipe": {
+      "title": "A representation of a post.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique post id",
+          "type": "integer"
+        },
+        "type": {
+          "description": "type of post for example recipe, podcast or quote etc",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Unique post name. Usually delimited by dash.(i.e '-')",
+          "type": "string"
+        },
+        "path": {
+          "description": "Unique post name prefixed by post type.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title of a post.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "excerpt": {
+          "description": "This short description of a post.",
+          "type": "string"
+        },
+        "meta_description": {
+          "description": "The meta_description of a post.",
+          "type": "string"
+        },
+        "keywords": {
+          "description": "The list of keywords of a post.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date a post was created.",
+          "type": "string"
+        },
+        "modified_at": {
+          "description": "The date a post was last modified.",
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/Author"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "comment_count": {
+          "description": "This number of comments on this post.",
+          "type": "integer"
+        },
+        "comment_status": {
+          "description": "This is the comment status. example open or closed",
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "related_posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetaPost"
+          }
+        },
+        "next_and_previous": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            },
+            "kind": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            }
+          }
+        },
+        "affiliate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Affiliate"
+          }
+        },
+        "cook_time": {
+          "description": "The cook time for preparing a recipe.",
+          "type": "string"
+        },
+        "ingredients": {
+          "description": "The list of ingredients for this recipe.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "instructions": {
+          "description": "The list of instructions for this recipe.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preparation_time": {
+          "description": "The preparation time for this recipe.",
+          "type": "string"
+        },
+        "ready_in": {
+          "description": "The total preparation and cook time for this recipe.",
+          "type": "string"
+        },
+        "servings": {
+          "description": "The servings for this recipe.",
+          "type": "string"
+        },
+        "yield": {
+          "description": "The yield for this recipe.",
+          "type": "string"
+        },
+        "nutrition_label": {
+          "$ref": "#/definitions/NutritionLabel"
+        }
+      }
+    },
+    "Podcast": {
+      "title": "A representation of a post.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique post id",
+          "type": "integer"
+        },
+        "type": {
+          "description": "type of post for example recipe, podcast or quote etc",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Unique post name. Usually delimited by dash.(i.e '-')",
+          "type": "string"
+        },
+        "path": {
+          "description": "Unique post name prefixed by post type.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title of a post.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "excerpt": {
+          "description": "This short description of a post.",
+          "type": "string"
+        },
+        "meta_description": {
+          "description": "The meta_description of a post.",
+          "type": "string"
+        },
+        "keywords": {
+          "description": "The list of keywords of a post.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date a post was created.",
+          "type": "string"
+        },
+        "modified_at": {
+          "description": "The date a post was last modified.",
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/Author"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "comment_count": {
+          "description": "This number of comments on this post.",
+          "type": "integer"
+        },
+        "comment_status": {
+          "description": "This is the comment status. example open or closed",
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "related_posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetaPost"
+          }
+        },
+        "next_and_previous": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            },
+            "kind": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            }
+          }
+        },
+        "affiliate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Affiliate"
+          }
+        },
+        "enclosure": {
+          "description": "The podcast enclosure details.",
+          "type": "object",
+          "properties": {
+            "url": {
+              "description": "The url to the audio file",
+              "type": "string"
+            },
+            "long": {
+              "description": "The long time for the recording",
+              "type": "integer"
+            },
+            "format": {
+              "description": "Audio format",
+              "type": "string"
+            },
+            "duration": {
+              "description": "The audio recording duration",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "Product": {
+      "title": "A representation of a post.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique post id",
+          "type": "integer"
+        },
+        "type": {
+          "description": "type of post for example recipe, podcast or quote etc",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Unique post name. Usually delimited by dash.(i.e '-')",
+          "type": "string"
+        },
+        "path": {
+          "description": "Unique post name prefixed by post type.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of a post. See here for more https://codex.wordpress.org/Post_Status",
+          "type": "string"
+        },
+        "title": {
+          "description": "The title of a post.",
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/Content"
+        },
+        "excerpt": {
+          "description": "This short description of a post.",
+          "type": "string"
+        },
+        "meta_description": {
+          "description": "The meta_description of a post.",
+          "type": "string"
+        },
+        "keywords": {
+          "description": "The list of keywords of a post.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date a post was created.",
+          "type": "string"
+        },
+        "modified_at": {
+          "description": "The date a post was last modified.",
+          "type": "string"
+        },
+        "author": {
+          "$ref": "#/definitions/Author"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "comment_count": {
+          "description": "This number of comments on this post.",
+          "type": "integer"
+        },
+        "comment_status": {
+          "description": "This is the comment status. example open or closed",
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "related_posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetaPost"
+          }
+        },
+        "next_and_previous": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            },
+            "kind": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MetaPost"
+              }
+            }
+          }
+        },
+        "affiliate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Affiliate"
+          }
+        },
+        "url": {
+          "description": "The url to the affiliate product page.",
+          "type": "string"
+        },
+        "button_text": {
+          "description": "The button text of the product.",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        },
+        "sale_price": {
+          "$ref": "#/definitions/Price"
+        },
+        "regular_price": {
+          "$ref": "#/definitions/Price"
+        }
+      }
+    },
+    "Author": {
+      "title": "A representation of an author.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique author id.",
+          "type": "integer"
+        },
+        "meta_id": {
+          "description": "The meta_id for this author.",
+          "type": "integer"
+        },
+        "nickname": {
+          "description": "The nickname for this author.",
+          "type": "string"
+        },
+        "email": {
+          "description": "The nickname for this author.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The url for this author.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status permission for this author.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date this author was created.",
+          "type": "string"
+        }
+      }
+    },
+    "AuthorPosts": {
+      "title": "A representation of all posts belonging to an author.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique author id.",
+          "type": "integer"
+        },
+        "meta_id": {
+          "description": "The meta_id for this author.",
+          "type": "integer"
+        },
+        "nickname": {
+          "description": "The nickname for this author.",
+          "type": "string"
+        },
+        "email": {
+          "description": "The nickname for this author.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The url for this author.",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status permission for this author.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date this author was created.",
+          "type": "string"
+        },
+        "post_count": {
+          "description": "The number of posts published by this author.",
+          "type": "integer"
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Post"
+          }
+        }
+      }
+    },
+    "Archive": {
+      "title": "A representation of a sitemap.",
+      "type": "object",
+      "properties": {
+        "day": {
+          "description": "The archive day.",
+          "type": "string"
+        },
+        "month": {
+          "description": "The archive month.",
+          "type": "string"
+        },
+        "year": {
+          "description": "The archive year.",
+          "type": "string"
+        },
+        "date": {
+          "description": "The archive full date.",
+          "type": "string"
+        },
+        "formats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetaPost"
+          }
+        }
+      }
+    },
+    "Sitemap": {
+      "title": "A representation of a sitemap.",
+      "type": "object",
+      "properties": {
+        "loc": {
+          "description": "The sitemap location.",
+          "type": "string"
+        },
+        "lastmod": {
+          "description": "The sitemap last modified date.",
+          "type": "string"
+        }
+      }
+    },
+    "URL": {
+      "title": "A representation of a URL.",
+      "type": "object",
+      "properties": {
+        "loc": {
+          "description": "The url\\'s location.",
+          "type": "string"
+        },
+        "priority": {
+          "description": "The url\\'s priority.",
+          "type": "string"
+        },
+        "changefreq": {
+          "description": "The url\\'s change frequency.",
+          "type": "string"
+        },
+        "lastmod": {
+          "description": "The url\\'s last modified date.",
+          "type": "string"
+        }
+      }
+    },
+    "TagPost": {
+      "title": "A representation of a taxonomy and associated posts.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The id of the taxonomy.",
+          "type": "integer"
+        },
+        "post_id": {
+          "description": "The post id reference to a post.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of taxonomy.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the taxonomy.",
+          "type": "string"
+        },
+        "slug": {
+          "description": "The slug of the taxonomy.",
+          "type": "string"
+        },
+        "taxonomy": {
+          "description": "The taxonomy for this.",
+          "type": "string"
+        },
+        "parent": {
+          "description": "The parent taxonomy id.",
+          "type": "integer"
+        },
+        "group": {
+          "description": "The group id for this.",
+          "type": "integer"
+        },
+        "order": {
+          "description": "The sorting order for this.",
+          "type": "integer"
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetaPost"
+          }
+        }
+      }
+    },
+    "Tag": {
+      "title": "A representation of a tag.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The id of the taxonomy.",
+          "type": "integer"
+        },
+        "post_id": {
+          "description": "The post id reference to a post.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name of taxonomy.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the taxonomy.",
+          "type": "string"
+        },
+        "slug": {
+          "description": "The slug of the taxonomy.",
+          "type": "string"
+        },
+        "taxonomy": {
+          "description": "The taxonomy for this.",
+          "type": "string"
+        },
+        "parent": {
+          "description": "The parent taxonomy id.",
+          "type": "integer"
+        },
+        "group": {
+          "description": "The group id for this.",
+          "type": "integer"
+        },
+        "order": {
+          "description": "The sorting order for this.",
+          "type": "integer"
+        }
+      }
+    },
+    "Affiliate": {
+      "title": "A representation of an affiliate's attachment.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique attachment id.",
+          "type": "integer"
+        },
+        "meta_id": {
+          "description": "The meta_id for this attachment.",
+          "type": "integer"
+        },
+        "path": {
+          "description": "The path for this author.",
+          "type": "string"
+        },
+        "meta": {
+          "description": "The path for this author.",
+          "type": "object",
+          "properties": {
+            "file": {
+              "description": "The file path to original image.",
+              "type": "string"
+            },
+            "height": {
+              "description": "The height of the original image.",
+              "type": "integer"
+            },
+            "width": {
+              "description": "The width of the original image.",
+              "type": "integer"
+            },
+            "title": {
+              "description": "The title for this affiliate post.",
+              "type": "string"
+            },
+            "url": {
+              "description": "The url for this affiliate post.",
+              "type": "string"
+            },
+            "image_meta": {
+              "description": "The image meta data of the raw image.",
+              "type": "object",
+              "properties": {
+                "aperture": {
+                  "description": "The camera aperture data",
+                  "type": "string"
+                },
+                "camera": {
+                  "description": "The name of the camera.",
+                  "type": "string"
+                },
+                "caption": {
+                  "description": "The image caption from the camera.",
+                  "type": "string"
+                },
+                "copyright": {
+                  "description": "The copyright from the camera.",
+                  "type": "string"
+                },
+                "created_timestamp": {
+                  "description": "The copyright from the camera.",
+                  "type": "string"
+                },
+                "credit": {
+                  "description": "The credit (photographer) from the camera.",
+                  "type": "string"
+                },
+                "focal_length": {
+                  "description": "The focal length from the camera.",
+                  "type": "string"
+                },
+                "iso": {
+                  "description": "The focal length from the camera.",
+                  "type": "string"
+                },
+                "keywords": {
+                  "description": "The image keywords from the camera.",
+                  "type": "string"
+                },
+                "orientation": {
+                  "description": "The image orientation from the camera.",
+                  "type": "string"
+                },
+                "shutter_speed": {
+                  "description": "The image shutter speed from the camera.",
+                  "type": "string"
+                },
+                "title": {
+                  "description": "The image title speed from the camera.",
+                  "type": "string"
+                },
+                "sizes": {
+                  "description": "This various image sizes.",
+                  "type": "object",
+                  "properties": {
+                    ".*": {
+                      "$ref": "#/definitions/MetaImageSize"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "MetaImageSize": {
+      "title": "A representation of the meta data for image size.",
+      "type": "object",
+      "properties": {
+        "converted": {
+          "description": "The file path.",
+          "type": "integer"
+        },
+        "file": {
+          "description": "The file path.",
+          "type": "string"
+        },
+        "orig_file": {
+          "description": "The original file path.",
+          "type": "string"
+        },
+        "real_orig_file": {
+          "description": "The real original file path.",
+          "type": "string"
+        },
+        "height": {
+          "description": "The image height.",
+          "type": "integer"
+        },
+        "width": {
+          "description": "The image height.",
+          "type": "integer"
+        },
+        "mime-type": {
+          "description": "The image mime-type.",
+          "type": "string"
+        }
+      }
+    },
+    "RecipeRateResponse": {
+      "title": "A request body for creating/updating a recipe.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique recipe id",
+          "type": "string"
+        },
+        "rates": {
+          "description": "User given rates",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the create/update transaction.",
+          "type": "boolean"
+        }
+      }
+    },
+    "RecipeRate": {
+      "description": "Recipe Rate object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The recipe database id"
+        },
+        "rate": {
+          "type": "string",
+          "description": "The user give rate for the recipe."
+        }
+      },
+      "required": [
+        "id",
+        "rate"
+      ]
+    },
+    "Comment": {
+      "title": "A representation of a comment.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique author id.",
+          "type": "integer"
+        },
+        "post_id": {
+          "description": "The post_id for this comment.",
+          "type": "integer"
+        },
+        "content": {
+          "description": "Content for this comment.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of comment.",
+          "type": "string"
+        },
+        "parent": {
+          "description": "Parent post id",
+          "type": "string"
+        },
+        "status": {
+          "description": "Comment\\'s status",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "Comment\\'s user id",
+          "type": "string"
+        },
+        "author": {
+          "description": "Comment\\'s author slug",
+          "type": "string"
+        },
+        "author_url": {
+          "description": "Comment\\'s author slug",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The date this author was created.",
+          "type": "string"
+        }
+      }
+    },
+    "Price": {
+      "title": "A representation of a Price Float64",
+      "type": "object",
+      "properties": {
+        "Float64": {
+          "type": "number"
+        },
+        "Valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Error": {
+      "title": "A representation of a ERROR Model",
+      "type": "object",
+      "properties": {
+        "count": {
+          "description": "Count of posts",
+          "type": "integer"
+        },
+        "message": {
+          "description": "Count of posts",
+          "type": "string"
+        },
+        "status": {
+          "description": "Count of posts",
+          "type": "string"
+        }
+      }
+    },
+    "NutritionLabel": {
+      "title": "A representation of a Nutrional Facts Label",
+      "type": "object",
+      "properties": {
+        "PolyFat": {
+          "description": "The PolyFat.",
+          "type": "string"
+        },
+        "MonoFat": {
+          "description": "The MonoFat.",
+          "type": "string"
+        },
+        "valueCalories": {
+          "description": "The valueCalories.",
+          "type": "string"
+        },
+        "valueFatCalories": {
+          "description": "The valueFatCalories.",
+          "type": "string"
+        },
+        "valueTotalFat": {
+          "description": "The valueTotalFat.",
+          "type": "string"
+        },
+        "valueSatFat": {
+          "description": "The valueSatFat.",
+          "type": "string"
+        },
+        "valueTransFat": {
+          "description": "The valueTransFat.",
+          "type": "string"
+        },
+        "valueCholesterol": {
+          "description": "The valueCholesterol.",
+          "type": "string"
+        },
+        "valueSodium": {
+          "description": "The valueSodium.",
+          "type": "string"
+        },
+        "valueTotalCarb": {
+          "description": "The valueTotalCarb.",
+          "type": "string"
+        },
+        "valueFibers": {
+          "description": "The valueFibers.",
+          "type": "string"
+        },
+        "valueSugars": {
+          "description": "The valueSugars.",
+          "type": "string"
+        },
+        "valueProteins": {
+          "description": "The valueProteins.",
+          "type": "string"
+        },
+        "valueVitaminA": {
+          "description": "The valueVitaminA.",
+          "type": "string"
+        },
+        "valueVitaminC": {
+          "description": "The valueVitaminC.",
+          "type": "string"
+        },
+        "valueCalcium": {
+          "description": "The valueCalcium.",
+          "type": "string"
+        },
+        "valueIron": {
+          "description": "The valueIron.",
+          "type": "string"
+        },
+        "valuePotassium": {
+          "description": "The valuePotassium.",
+          "type": "string"
+        }
+      }
+    }
+  }
 }
