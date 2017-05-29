@@ -54,6 +54,13 @@
     }
   ],
   "parameters": {
+    "id": {
+      "name": "id",
+      "in": "path",
+      "description": "This is the post id.",
+      "type": "integer",
+      "required": true
+    },
     "ids": {
       "name": "ids",
       "in": "path",
@@ -865,6 +872,9 @@
         "parameters": [
           {
             "$ref": "#/parameters/recipe_rate_data"
+          },
+          {
+            "$ref": "#/parameters/id"
           }
         ],
         "tags": [
