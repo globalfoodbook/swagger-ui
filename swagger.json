@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Global Food Book API",
-    "description": "An API used to access content and formats from globalfoodbook's wordpress database. The Global Food Book API provides a programmatic access to content, formats and meta data from the wordpress database. With this REST API, developers can include data from Global Food Book in apps or websites.\n\nFeatures include\n* Recipes, Detailed description, Nutrition label info, Videos, Images and Meta data \n* Blog Posts \nDetailed description of the health related topics. \n* Quotes\n*Snippets of motivating food related quotes.\n* Products \n*Description of products mostly cooking utensils and recipe ingrdient. \n* Sitemap\n*Collection of all the content and formats.\n* Site settings \n*Holds all the site settings, navigational and meta data etc. \n* Taxonomies\n*This holds data on categories and terms that posts are tagged.\n* Podcasts\n*This contains podcasts description and audio file location or url.\n\nAll endpoints are are located at `api.globalfoodbook.net/v1/`.\n",
+    "title": "Global Food Book API by Ikenna Okpala",
+    "description": "An API used to access content and formats from globalfoodbook's wordpress database. The Global Food Book API provides a programmatic access to content, formats and meta data from the wordpress database. With this REST API, developers can include data from Global Food Book in apps or websites.\n\nFeatures include\n* Recipes, Detailed description, Nutrition label info, Videos, Images and Meta data \n* Blog Posts \nDetailed description of the health related topics. \n* Quotes\n*Snippets of motivating food related quotes.\n* Products \n*Description of products mostly cooking utensils and recipe ingrdient. \n* Sitemap\n*Collection of all the content and formats.\n* Site settings \n*Holds all the site settings, navigational and meta data etc. \n* Taxonomies\n*This holds data on categories and terms that posts are tagged.\n* Podcasts\n*This contains podcasts description and audio file location or url.\n* RSS Feeds\n*This returns posts in an rss format.\n\nAll endpoints are are located at `api.globalfoodbook.net/v1/`.\n",
     "version": "v1"
   },
   "host": "api.globalfoodbook.net",
@@ -24,6 +24,9 @@
     },
     {
       "name": "Authors"
+    },
+    {
+      "name": "Feeds"
     },
     {
       "name": "Formats"
@@ -93,6 +96,13 @@
       "name": "term",
       "in": "path",
       "description": "The name of the term belonging to a taxonomy",
+      "type": "string",
+      "required": true
+    },
+    "feed": {
+      "name": "feed",
+      "in": "path",
+      "description": "The name of the feed type. Example: instant-articles, posts, recipes",
       "type": "string",
       "required": true
     },
@@ -1137,6 +1147,69 @@
           }
         }
       }
+    },
+    "/feeds/index/{feed}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/feed"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Feeds"
+        ],
+        "summary": "Get rss feed of site details and listing of posts.",
+        "description": "The feeds endpoint returns site details and listing of posts.\n",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "A rss feed of posts.",
+            "schema": {
+              "$ref": "#/definitions/rss"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
+    },
+    "/feeds/index/fb-instant-articles": {
+      "get": {
+        "tags": [
+          "Feeds"
+        ],
+        "summary": "Get facebook instant articles rss feed of site details and listing of posts.",
+        "description": "The facebook instant articles endpoint returns site details and listing of posts.\n",
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "A rss feed of posts.",
+            "schema": {
+              "$ref": "#/definitions/rss"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "default": {
+            "$ref": "#/responses/DefaultError"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1146,6 +1219,80 @@
         "html": {
           "description": "HTML version of the post content.",
           "type": "string"
+        }
+      }
+    },
+    "rss": {
+      "title": "A representation of a rss feed.",
+      "type": "object",
+      "properties": {
+        "channel": {
+          "description": "Channel child node of rss.",
+          "type": "object",
+          "properties": {
+            "title": {
+              "description": "Title for this rss feed.",
+              "type": "string"
+            },
+            "link": {
+              "description": "Link for this rss feed pointing to the webite homepage.",
+              "type": "string"
+            },
+            "description": {
+              "description": "Description of this api, rss feed and/or website.",
+              "type": "string"
+            },
+            "lastBuildDate": {
+              "description": "Last updated date of this  api, rss feed and/or website.",
+              "type": "string"
+            },
+            "author": {
+              "description": "The publising app, person or organisation.",
+              "type": "string"
+            },
+            "language": {
+              "description": "The language in which this rss feed is based on.",
+              "type": "string"
+            },
+            "item": {
+              "description": "This rss item describing the content and its details.",
+              "type": "object",
+              "properties": {
+                "title": {
+                  "description": "Title for this rss feed.",
+                  "type": "string"
+                },
+                "link": {
+                  "description": "Link to this piece of content.",
+                  "type": "string"
+                },
+                "pubDate": {
+                  "description": "The date this peice of content was created.",
+                  "type": "string"
+                },
+                "lastBuildDate": {
+                  "description": "Last updated date of this  api, rss feed and/or website.",
+                  "type": "string"
+                },
+                "author": {
+                  "description": "The publising app, person or organisation.",
+                  "type": "string"
+                },
+                "guid": {
+                  "description": "Guid for thi piece of content.",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Description of this api, rss feed and/or website.",
+                  "type": "string"
+                },
+                "content:encoded": {
+                  "description": "The content fro this rss item.",
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       }
     },
